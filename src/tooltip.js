@@ -13,6 +13,9 @@ export default class Tooltip extends React.Component {
         if(!this.props.mode || this.props.mode === 'click'){
             this.setState({tootltipVisible: !this.state.tootltipVisible});
         }
+		if(this.props.onClick){
+            this.props.onClick();
+        }
     }
 
     showTootltip(){
@@ -29,17 +32,17 @@ export default class Tooltip extends React.Component {
     render () {
         return (
             <div className={this.props.className}>
-                <div 
-                    ref="target" 
-                    onClick={this.toggleTootltip.bind(this)} 
-                    onMouseEnter={this.showTootltip.bind(this)} 
-                    onMouseLeave={this.hideTootltip.bind(this)} 
+                <div
+                    ref="target"
+                    onClick={this.toggleTootltip.bind(this)}
+                    onMouseEnter={this.showTootltip.bind(this)}
+                    onMouseLeave={this.hideTootltip.bind(this)}
                     className="Tooltip-target"
                 >
                     {this.props.children}
                 </div>
-                <div 
-                    className="Tooltip-content" 
+                <div
+                    className="Tooltip-content"
                     style={{display:(this.state.tootltipVisible)?'block':'none'}}
                 >
                     {this.props.content}
