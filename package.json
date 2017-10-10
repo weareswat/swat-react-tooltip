@@ -19,6 +19,8 @@
   "author": "SWAT",
   "license": "ISC",
   "dependencies": {
+  },
+  "peerDependencies": {
     "react": "^15.2.1"
   },
   "devDependencies": {
